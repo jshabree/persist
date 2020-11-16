@@ -11,7 +11,11 @@ const persistConfig = {
     stateReconciler: autoMergeLevel2 
 };
 
+// defining a persistor that can be passed to the store later on
 const myPersistReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = createStore(myPersistReducer);
+
+// store is passed to the persistStore function to store 
+// the persisted state of the redux in local storage
 export const persistor = persistStore(store);
